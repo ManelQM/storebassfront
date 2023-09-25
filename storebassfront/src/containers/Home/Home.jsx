@@ -2,7 +2,7 @@ import React from "react";
 import "./Home.css"
 
 const Home = () => {
-    retur(
+    return(
         <div className="homeAesthetics">
 
         </div>
