@@ -3,9 +3,10 @@
     height: 25vh;
     width: 100vw;
     background-color: rgb(6, 132, 107);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    color: white; 
+     display: flex;
+    /* align-items: flex-end; */
+    justify-content:left;
+    flex-direction: row;
 
 }
