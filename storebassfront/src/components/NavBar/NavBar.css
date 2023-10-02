@@ -1,0 +1,20 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4em;
+    margin: 1rem 6rem;
+    border: 2px lightgray solid;
+    z-index: 10;
+    position: relative;
+}
+
+.nav {
+    position: relative;
+    z-index: 10;
+}
+
+.logoAesthetics{
+    font-family: sans-serif;
+    font-size: 3.5rem;
+}
