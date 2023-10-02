@@ -26,7 +26,7 @@ export const NavBar = () => {
                 <a href="/">Cables</a>
                 <a href="/">Cabinets</a>
                 <a href="/">Amps</a>
-                <a className="loginAccess" href="/login">Log In</a>
+                <a className="loginAccessButton" href="/login">Log In</a>
             </div>
             <button className="nav-btn nav-close-btn">
         <FaTimes/>
