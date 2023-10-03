@@ -2,10 +2,14 @@ import React, { useRef } from "react";
 import "./NavBar.css";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
-import NavBar from "react-bootstrap/Navbar";
+import Navbar from "react-bootstrap/Navbar";
 import { FaBars,FaTimes } from "react-icons/fa";
 
 export const NavBar = () => {
+  const navRef = useRef();
+  const showNavbar = () => {
+    navRef.current.classList.toggle("responsive_nav")
+  }
   return (
     <>
       <header>
