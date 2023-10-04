@@ -1,10 +1,10 @@
 .bodyAesthetics {
     min-height: 75vh;
     width: 100vw;
-    /* display: flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: row; */
+    flex-direction: column;
     background-color:rgb(210, 162, 65);
     border: 0px;
     color:black,

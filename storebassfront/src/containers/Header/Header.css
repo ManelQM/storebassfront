@@ -5,8 +5,9 @@
     background-color: rgb(234, 244, 242);
     color: white; 
      display: flex;
-    /* align-items: flex-end; */
-    justify-content:left;
-    flex-direction: row;
+    align-items:baseline;
+    justify-content:space-around;
+    position: relative; 
+    z-index: 10;
 
 }

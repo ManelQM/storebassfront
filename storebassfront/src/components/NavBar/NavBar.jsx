@@ -16,9 +16,9 @@ export const NavBar = () => {
         <>
           <nav
             ref={navRef}
-            className="d-flex align-items-lg-center justify-content-lg-between w-100"
+            
           >
-            <div className="d-flex flex-xs-column align-items-xs-center">
+            <div >
               <a href="/">Home</a>
               <a href="/">Bass</a>
               <a href="/">NewBass</a>
@@ -26,7 +26,7 @@ export const NavBar = () => {
             <div>
                 <a className="logoAesthetics" href="/">STOREBASS</a>
             </div>
-            <div className="d-flez flex-xs column align-items-center">
+            <div>
                 <a href="/">Cables</a>
                 <a href="/">Cabinets</a>
                 <a href="/">Amps</a>
