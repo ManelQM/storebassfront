@@ -1,7 +1,8 @@
 header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content:space-between;
     height: 4em;
     margin: 1rem 6rem;
     border: 2px lightgray solid;
