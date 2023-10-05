@@ -15,10 +15,8 @@ export const NavBar = () => {
       <header>
         <>
           <nav
-            ref={navRef}
-            
-          >
-            <div >
+            ref={navRef} className='d-flex align-items-lg-center justify-content-lg-between w-100'>
+            <div className="d-flex flex-xs-column align-items-xs-center" >
               <a href="/">Home</a>
               <a href="/">Bass</a>
               <a href="/">NewBass</a>
@@ -36,9 +34,9 @@ export const NavBar = () => {
         <FaTimes/>
       </button>
           </nav>
-          {/* <button className="nav-btn" onClick={showNavbar}>
+          <button className="nav-btn" onClick={showNavbar}>
         <FaBars/>
-      </button> */}
+      </button>
         </>
       </header>
     </>
