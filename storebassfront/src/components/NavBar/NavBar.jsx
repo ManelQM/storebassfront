@@ -12,19 +12,31 @@ export const NavBar = () => {
       <header>
         <>
           <nav ref={navRef}>
-            <a href="/">Home  </a>
-            <a href="/">Bass  </a>
-            <a href="/">NewBass  </a>
+            
+            <a href="/">Home</a>
+            <a href="/">NewBass</a>
+            <a href="/">VintageBass</a>
+            <a href="/">Pickups</a>
+            <a href="/">Picks</a>
+            <a href="/">Pedals</a>
+            <a href="/">Straps</a>
 
             <a className="logoAesthetics" href="/">
               STOREBASS
             </a>
 
+            <a href="/">Amps</a>
+            <a href="/">Books</a>
+            <a href="/">Cases</a>
             <a href="/">Cables</a>
             <a href="/">Cabinets</a>
-            <a href="/">Amps</a>
+            <a href="/">Strings</a>
+
             <a className="loginAccessButton" href="/login">
               Log In
+            </a>
+            <a className="registerAccessButton" href="/">
+              Register
             </a>
 
             <button className="nav-btn nav-close-btn" onClick={showNavbar}>
