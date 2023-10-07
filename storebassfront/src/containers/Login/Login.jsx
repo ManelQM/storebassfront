@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Login.css";
-import {NavBar} from "../../components/NavBar/NavBar";
 
 const Login = (props) => {
     const [email, setEmail] = useState("");
@@ -13,7 +12,7 @@ const Login = (props) => {
 
     return (
         <>
-        <NavBar/>
+        
         <div className="loginAesthetics">
         <div className="authAestheticsContainer">
             <h2>Login</h2>
