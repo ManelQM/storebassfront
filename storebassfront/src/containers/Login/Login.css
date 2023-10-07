@@ -1,0 +1,61 @@
+
+.loginAesthetics{
+    text-align: center;
+    display: flex;
+    min-height: 60vh;
+    align-items: center;
+    justify-content: center;
+    color: #29335c;
+}
+.authAestheticsContainer, .loginAestheticsForm, .register-form {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+@media screen and (min-width: 600px) { 
+    .authAestheticsContainer{
+        padding: 5rem;
+        border: 1px solid black;
+        border-radius: 10px;
+        margin: 0.5rem;
+    }
+}
+
+ @media screen and (max-width: 1024px) {
+    .authAestheticsContainer{
+        padding: 5rem;
+        border: 1px solid black;
+        border-radius: 10px;
+        margin: 0.5rem;
+    }
+ }
+
+
+label {
+    text-align: left;
+    padding: 0.25rem 0;
+}
+
+input {
+    margin:  0.5rem 0;
+    padding: 1rem;
+    border: solid;
+    border-radius: 10px;
+}
+
+button {
+    border:solid black;
+    background:  white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 0.5em;
+    cursor: pointer;
+    color:  #db2b39;
+}
+
+.registerButtonAesthetics {
+    background-color: white;
+    color: #db2b39;;
+    text-decoration: underline;
+}

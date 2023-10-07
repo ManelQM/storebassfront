@@ -14,6 +14,7 @@ const Login = (props) => {
     return (
         <>
         <NavBar/>
+        <div className="loginAesthetics">
         <div className="authAestheticsContainer">
             <h2>Login</h2>
             <form className="loginAestheticsForm" onSubmit={handleSubmit}>
@@ -24,6 +25,7 @@ const Login = (props) => {
                 <button type="submit">Log In</button>
             </form>
             <button className="registerButtonAesthetics" onClick={() => props.onFormSwitch("register")}>Don't have an account? Register here</button>
+        </div>
         </div>
         </>
     )
