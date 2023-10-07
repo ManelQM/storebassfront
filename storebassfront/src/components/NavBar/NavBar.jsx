@@ -35,7 +35,7 @@ export const NavBar = () => {
             <a className="loginAccessButton" href="/login">
               Log In
             </a>
-            <a className="registerAccessButton" href="/">
+            <a className="registerAccessButton" href="/register">
               Register
             </a>
 

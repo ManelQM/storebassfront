@@ -26,7 +26,7 @@ const Login = (props) => {
             </form>
             <button className="registerButtonAesthetics" onClick={() => props.onFormSwitch("register")}>Don't have an account? Register here</button>
         </div>
-        </div>
+        </div>  
         </>
     )
 };
