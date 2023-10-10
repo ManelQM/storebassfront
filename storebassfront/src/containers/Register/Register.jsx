@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import "./Register.css";
+import { useNavigate } from "react-router-dom";
 
 
 const Register = () => {
+    const navigate = useNavigate();
     const [email,setEmail] = useState("");
     const [password, setPass] = useState("");
     const [name, setName] = useState("");
@@ -32,7 +34,7 @@ const Register = () => {
                 <input value={password} onChange={(e) => setPass(e.target.value)} type="password" id="password" placeholder="***********"/>
                 <button type="submit">Register Now</button>
             </form>
-            <button className="loginButton" onClick={() => propTypes.onFormSwitch ("/login")}>Already have an account? Login here.</button>
+            <button className="loginButton" onClick={() => navigate("/login")}>Already have an account? Login here.</button>
         </div> 
         </div>
         

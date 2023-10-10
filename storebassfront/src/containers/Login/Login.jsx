@@ -1,10 +1,13 @@
 import React, { useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-// import {useData, login} from 
+import { userData, login } from "./loginSlice";
+import { loginUser } from "../../services/apiCalls";
+import { decodeToken } from "react-jwt";
 import "./Login.css";
 
 const Login = (props) => {
+    const navigate  = useNavigate();
     const [email, setEmail] = useState("");
     const [pass, setPass] = useState("");
 
@@ -26,7 +29,7 @@ const Login = (props) => {
                 <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="***********" id="password" name="password" />
                 <button type="submit">Log In</button>
             </form>
-            <button className="registerButtonAesthetics" onClick={() => props.onFormSwitch("register")}>Don't have an account? Register here</button>
+            <button className="registerButtonAesthetics" onClick={() => navigate("/register")}>Don't have an account? Register here</button>
         </div>
         </div>  
         </>
