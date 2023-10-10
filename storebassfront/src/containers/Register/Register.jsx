@@ -6,6 +6,8 @@ const Register = () => {
     const [email,setEmail] = useState("");
     const [password, setPass] = useState("");
     const [name, setName] = useState("");
+    const [surname, setSurname] = useState("");
+    const [address, setAddress] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -18,11 +20,15 @@ const Register = () => {
         <div className="authAestheticsContainer ">
             <h2>Register</h2>
             <form className="register-form" onSubmit={handleSubmit}>
-                <label htmlFor="name">Full Name</label>
+                <label htmlFor="name">Name</label>
                 <input value={name} name="name" onChange={(e) => setName(e.target.value)} id="name" placeholder="full Name" />
-                <label htmlFor="email"></label>
-                <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" id="email" placeholder="name"/>
-                <label htmlFor="password"></label>
+                <label htmlFor="surname">Surname</label>
+                <input value={surname} surname="surname" onChange={(e) => setSurname (e.target.value)} id="surname" placeholder="surname"/>
+                <label htmlFor="address">Address</label>
+                <input value={address} address="address" onChange={(e) => setAddress (e.target.value)} id="address" placeholder="address" />
+                <label htmlFor="email">Email</label>
+                <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" id="email" placeholder="email"/>
+                <label htmlFor="password">Password</label>
                 <input value={password} onChange={(e) => setPass(e.target.value)} type="password" id="password" placeholder="***********"/>
                 <button type="submit">Register Now</button>
             </form>
