@@ -10,21 +10,24 @@ const Login = () => {
  
   const [email, setEmail] = useState("");
   const [password, setPass] = useState("");
-  const [error, setError] = useState(null);
+  const [error, setError] = useState("");
   
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-//   const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     
     try {
         const res = await loginUser(email,password);
+        console.log(res,"Viene algo o que?");
         if (res === "Invalid email or password"){
             setError(res); 
         }else {
+          
             let decoded = decodeToken(res.jwt);
-            let idrolenavigate = decoded.user.idrole; 
+            
+            let idrolenavigate = decoded.user.roleid; 
 
             let userCredentials = {
                 token: res,
@@ -55,7 +58,7 @@ const Login = () => {
             <label htmlFor="email">email</label>
             <input
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={ setEmail}
               type="email"
               placeholder="youremail@gmail.com"
               id="email"
@@ -64,7 +67,7 @@ const Login = () => {
             <label htmlFor="password">password</label>
             <input
               value={password}
-              onChange={(e) => setPass(e.target.value)}
+              onChange={setPass}
               type="password"
               placeholder="***********"
               id="password"
