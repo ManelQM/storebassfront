@@ -1,90 +1,54 @@
-import React, { useState, useEffect } from "react";
+import React, { useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { userData, login } from "./loginSlice";
 import { loginUser } from "../../services/apiCalls";
-import { decodeToken } from "react-jwt";
 import "./Login.css";
 
-const Login = () => {
- 
-  const [email, setEmail] = useState("");
-  const [password, setPass] = useState("");
-  const [error, setError] = useState("");
-  
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+const Login = (props) => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    
-    try {
-        const res = await loginUser(email,password);
-        console.log(res,"Viene algo o que?");
-        if (res === "Invalid email or password"){
-            setError(res); 
-        }else {
-          
-            let decoded = decodeToken(res.jwt);
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try{
+          const response = await loginUser({email, password});
+
+          if (response.jwt) {
+            localStorage.setItem("jwt", response.jwt);
+
+            navigate("/");
+          } else {
             
-            let idrolenavigate = decoded.user.roleid; 
-
-            let userCredentials = {
-                token: res,
-                user: decoded.user,
-            };
-
-            dispatch(login(userCredentials));
-
-            if(idrolenavigate === 2) {
-                navigate("../userprofile");
-            }else {
-                setError("Who am I?");
-            }
+            setError ("Invalid credentials. Try Again");
+          }
+        } catch (error) {
+          console.error("Auth error", error);
+          setError("ERROR")
         }
-    } catch (error){
-        console.error("LOGIN ERROR RESPONSE", error);
-        setError("An error occurred during login")
-    }
+    };
 
-  };
-
-  return (
-    <>
-      <div className="loginAesthetics">
+    return (
+        <>
+        
+        <div className="loginAesthetics">
         <div className="authAestheticsContainer">
-          <h2>Login</h2>
-          <form className="loginAestheticsForm" onSubmit={handleSubmit}>
-            <label htmlFor="email">email</label>
-            <input
-              value={email}
-              onChange={ setEmail}
-              type="email"
-              placeholder="youremail@gmail.com"
-              id="email"
-              name="email"
-            />
-            <label htmlFor="password">password</label>
-            <input
-              value={password}
-              onChange={setPass}
-              type="password"
-              placeholder="***********"
-              id="password"
-              name="password"
-            />
-            <button type="submit">Log In</button>
-          </form>
-          <button
-            className="registerButtonAesthetics"
-            onClick={() => navigate("/register")}
-          >
-            Don't have an account? Register here
-          </button>
+            <h2>Login</h2>
+            <form className="loginAestheticsForm" onSubmit={handleSubmit}>
+                <label htmlFor="email">email</label>
+                <input value={email} onChange={(e) => setEmail(e.target.value)}type="email" placeholder="youremail@gmail.com" id="email" name="email" />
+                <label htmlFor="password">password</label>
+                <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="***********" id="password" name="password" />
+                <button type="submit">Log In</button>
+            </form>
+            {error && <p className="error-message">{error}</p>}
+            <button className="registerButtonAesthetics" onClick={() => navigate ("/register")}>Don't have an account? Register here</button>
         </div>
-      </div>
-    </>
-  );
+        </div>  
+        </>
+    )
 };
 
-export default Login;
+export default Login; 

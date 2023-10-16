@@ -1,47 +1,47 @@
 import axios from "axios";
 const API_URL = "http://localhost:3001";
 
-// export let loginUser = async (body) => {
-//   try {
-//     const response = await axios.post(`${API_URL}/auth/login`, {
-//       email: body.email,
-//       password: body.password,
-//     });
-//     console.log(response.data, "la respuesta del backend")
-//     // La solicitud fue exitosa, retornamos los datos recibidos
-//     return response.data;
-    
-//   } catch (error) {
-//     // Ocurrió un error en la solicitud, manejamos el error
-//     console.error("Error in loginUser:", error);
-    
-//     // Retornamos un mensaje de error genérico
-//     return "Invalid Email or Password";
-//   }
-// };
-
-export const loginUser = async (body, res) => {
-
+export let loginUser = async (body) => {
   try {
-      let resp = await axios.post(
-          "http://localhost:3001/auth/login",
-          body
-      );
-      
-  
-      if (resp.data === "Password or email is incorrect") {
-          return "El email o la contraseña son incorrectos"
-  
-      } else if (resp.data.message === "Login successful") {
-          return resp
-      }
+    const response = await axios.post(`${API_URL}/auth/login`, {
+      email: body.email,
+      password: body.password,
+    });
+    console.log(response.data, "la respuesta del backend")
+    // La solicitud fue exitosa, retornamos los datos recibidos
+    return response.data;
+    
   } catch (error) {
-     
-      return error.response
+    // Ocurrió un error en la solicitud, manejamos el error
+    console.error("Error in loginUser:", error);
+    
+    // Retornamos un mensaje de error genérico
+    return "Invalid Email or Password";
   }
+};
+
+// export const loginUser = async (body, res) => {
+
+//   try {
+//       let resp = await axios.post(
+//           "http://localhost:3001/auth/login",
+//           body
+//       );
+      
+
+//       if (resp.data === "Password or email is incorrect") {
+//           return "El email o la contraseña son incorrectos"
+  
+//       } else if (resp.data.message === "Login successful") {
+//           return resp
+//       }
+//   } catch (error) {
+     
+//       return error.response
+//   }
 
   
-};
+// };
 
 
 
