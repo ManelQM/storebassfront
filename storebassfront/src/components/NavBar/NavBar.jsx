@@ -21,7 +21,7 @@ export const NavBar = () => {
     return navigate ("/");
   };
     const loginButtonLabel = user.token ? "Logout" : "Login";
-    const registerButtonLabel = user.token ? `Hello, ${user.User.name}` : "Register";
+    const registerButtonLabel = user.token ? `Hello, ${user.name}` : "Register";
 
   return (
     <>
@@ -48,20 +48,20 @@ export const NavBar = () => {
             <a href="/">Cabinets</a>
             <a href="/">Strings</a>
             {user.token ? (
-              <button className="logoutButton" onClick={handleLogout}>
+              <a className="logoutButton" onClick={handleLogout}>
                 {loginButtonLabel}
-              </button>
+              </a>
             ): ( 
             <a className="loginAccessButton" href="/login">
               {loginButtonLabel}
             </a>
             )}
             {user.token ? ( 
-              <button className="userAccessButton" onClick={handleLogout}>
+              <a className="userAccessButton" onClick={handleLogout}>
                 {registerButtonLabel}
-              </button>
+              </a>
             ) : ( 
-            <a className="registerAccessButton" href="/register">
+            <a className="registerAccessButton loginAccessButton" href="/register">
               {registerButtonLabel}
             </a>
             )}  
