@@ -7,7 +7,7 @@ export let loginUser = async (body) => {
       email: body.email,
       password: body.password,
     });
-    console.log(response.data, "la respuesta del backend");
+    console.log(response, "la respuesta del backend");
 
     return response.data;
   } catch (error) {

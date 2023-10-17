@@ -2,6 +2,7 @@ import React, { useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { userData, login } from "./loginSlice";
+import { decodeToken } from "react-jwt";
 import { loginUser } from "../../services/apiCalls";
 import "./Login.css";
 
@@ -18,9 +19,15 @@ const Login = () => {
         e.preventDefault();
         try{
           const response = await loginUser({email, password});
-
+          let decoded = decodeToken(response.jwt);
           if (response.jwt) {
-            dispatch(login({token:response.jwt, user:response.user}))
+
+            let userCredentials = {
+              token: response,
+              user: decoded.user
+            }
+            console.log(userCredentials, "los credentials broh")
+            dispatch(login(userCredentials));
             navigate("/userprofile");
 
           } else {
