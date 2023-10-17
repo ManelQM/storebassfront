@@ -9,17 +9,20 @@ const Login = (props) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
-    const navigate = useNavigate();
-
+    const dispatch = useDispatch();
+    const user = useSelector((state) => state.user);
+    const navigate = useNavigate();   
+    
     const handleSubmit = async (e) => {
+
         e.preventDefault();
         try{
           const response = await loginUser({email, password});
 
           if (response.jwt) {
-            localStorage.setItem("jwt", response.jwt);
+            dispatch(login({token:response.jwt, user:response.user}))
+            navigate("/userprofile");
 
-            navigate("/");
           } else {
             
             setError ("Invalid credentials. Try Again");
