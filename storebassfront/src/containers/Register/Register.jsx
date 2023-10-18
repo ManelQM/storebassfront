@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./Register.css";
 import { useNavigate } from "react-router-dom";
+import { registerUser } from "../../services/apiCalls";
+import { useJwt } from "react-jwt";
 
 
 const Register = () => {
@@ -8,8 +10,6 @@ const Register = () => {
     const [email,setEmail] = useState("");
     const [password, setPass] = useState("");
     const [name, setName] = useState("");
-    const [surname, setSurname] = useState("");
-    const [address, setAddress] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -24,10 +24,6 @@ const Register = () => {
             <form className="register-form" onSubmit={handleSubmit}>
                 <label htmlFor="name">Name</label>
                 <input value={name} name="name" onChange={(e) => setName(e.target.value)} id="name" placeholder="full Name" />
-                <label htmlFor="surname">Surname</label>
-                <input value={surname} surname="surname" onChange={(e) => setSurname (e.target.value)} id="surname" placeholder="surname"/>
-                <label htmlFor="address">Address</label>
-                <input value={address} address="address" onChange={(e) => setAddress (e.target.value)} id="address" placeholder="address" />
                 <label htmlFor="email">Email</label>
                 <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" id="email" placeholder="email"/>
                 <label htmlFor="password">Password</label>

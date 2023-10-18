@@ -12,7 +12,7 @@ export const NavBar = () => {
     navRef.current.classList.toggle("responsive_nav");
   };
 
-  const user = useSelector((userData));
+  const user = useSelector(userData);
   const dispatch = useDispatch();
 
   const handleLogout = () => {
@@ -20,7 +20,9 @@ export const NavBar = () => {
     return navigate("/");
   };
   const loginButtonLabel = user.token ? "Logout" : "Login";
-  const registerButtonLabel = user.token ? `Hello, ${user.user.name}` : "Register";
+  const registerButtonLabel = user.token
+    ? `Hello, ${user.user.name}`
+    : "Register";
 
   return (
     <>
@@ -45,7 +47,7 @@ export const NavBar = () => {
             <a href="/">Cables</a>
             <a href="/">Cabinets</a>
             <a href="/">Strings</a>
-            
+
             {user.token ? (
               <a className="logoutButton" onClick={handleLogout}>
                 {loginButtonLabel}
@@ -60,10 +62,7 @@ export const NavBar = () => {
                 {registerButtonLabel}
               </a>
             ) : (
-              <a
-                className="registerAccessButton"
-                href="/register"
-              >
+              <a className="registerAccessButton" href="/register">
                 {registerButtonLabel}
               </a>
             )}

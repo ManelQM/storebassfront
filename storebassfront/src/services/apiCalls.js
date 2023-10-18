@@ -17,44 +17,19 @@ export let loginUser = async (body) => {
   }
 };
 
-// export const loginUser = async (body, res) => {
-
-//   try {
-//       let resp = await axios.post(
-//           "http://localhost:3001/auth/login",
-//           body
-//       );
-
-//       if (resp.data === "Password or email is incorrect") {
-//           return "El email o la contraseña son incorrectos"
-
-//       } else if (resp.data.message === "Login successful") {
-//           return resp
-//       }
-//   } catch (error) {
-
-//       return error.response
-//   }
-
-// };
-
-// let returnedMessage = "";
-
-// export let loginUser  = async (values) => {
-//     try {
-//         await axios
-//         .post(`${API_URL}/auth/login`, {
-//             email: values.email,
-//             password: values.password,
-//         })
-//         .then ((response) => {
-//             returnedMessage = response.data;
-//         });
-//         return returnedMessage;
-//     } catch(error) {
-//         returnedMessage = "Invalid Email or Password";
-//         return returnedMessage;
-//     }
-// };
-
-// import axios from "axios"; // Asegúrate de importar axios si no lo has hecho
+export let registerUser = async(body) => {
+  try{
+    await axios.post( `${API_URL}/auth/register`, {
+      name: body.name,
+      email: body.email,
+      password: body.password, 
+    })
+    .them((response) => {
+      returnedMessage = response.data.message; 
+    });
+    return returnedMessage;
+  } catch (error) {
+    returnedMessage = "Registered email, please try another one";
+    return returnedMessage;
+  }
+};
