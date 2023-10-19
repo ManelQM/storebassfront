@@ -18,7 +18,7 @@ export let loginUser = async (body) => {
 };
 
 export let registerUser = async(values) => {
-  
+  let returnedMessage;
   try{
     await axios.post( `${API_URL}/auth/register`, {
       name: values.name,
@@ -26,7 +26,7 @@ export let registerUser = async(values) => {
       password: values.password, 
     })
     .then((response) => {
-      console.log(response, "el res data");
+      console.log(response, "el res data en apicall");
       returnedMessage = response.data.message; 
     });
     

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Register.css";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { registerUser } from "../../services/apiCalls";
 import { useJwt } from "react-jwt";
@@ -15,16 +16,19 @@ const Register = () => {
     const [errorMessage, setErrorMessage] = useState("");
 
     const response = async (values) => {
-        console.log(response, "Esto es el response");
+        
         try {
             const res = await registerUser(values);
+            console.log(values, "Esto es lo que llega a values");
             if (res === "success") {
+               
                 setSuccessMessage("User registered"); 
                 setErrorMessage("");
                 setTimeout(() => {
                     navigate("/login");
                 },3000);
             } else {
+                console.log(res, "esto es el res despues del success")
                 setSuccessMessage("");
                 setErrorMessage("Registration Failed");
             }
