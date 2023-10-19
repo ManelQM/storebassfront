@@ -14,33 +14,37 @@ const Register = () => {
     const [successMessage, setSuccessMessage] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
 
-
+    const response = async (values) => {
+        console.log(response, "Esto es el response");
+        try {
+            const res = await registerUser(values);
+            if (res === "success") {
+                setSuccessMessage("User registered"); 
+                setErrorMessage("");
+                setTimeout(() => {
+                    navigate("/login");
+                },3000);
+            } else {
+                setSuccessMessage("");
+                setErrorMessage("Registration Failed");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            setSuccessMessage("");
+            setErrorMessage("An error ocurred");
+        }
+    };
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
         
-        try {
-            const response = await registerUser( {name, email ,password});
-
-            if (response && response.status === "success") {
-             
-                setSuccessMessage("User registered!", response);
-                
-
-                // setJwt(response.jwt);
-
-                setTimeout(() => {
-                    navigate("/login");
-                }, 3000);
-
-            } else {
-                setSuccessMessage("");
-                setErrorMessage("Error. Please try again");
-            }
-        } catch (error) {
-            setSuccessMessage("");
-            setErrorMessage("Conection error"); 
-        }
-    }
+        const formData = {
+            name: name,
+            email: email,
+            password: password,
+        };
+        response(formData);
+    };
 
      return (
         <>

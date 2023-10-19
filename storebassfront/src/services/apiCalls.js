@@ -17,13 +17,13 @@ export let loginUser = async (body) => {
   }
 };
 
-export let registerUser = async(body) => {
+export let registerUser = async(values) => {
   
   try{
     await axios.post( `${API_URL}/auth/register`, {
-      name: body.name,
-      email: body.email,
-      password: body.password, 
+      name: values.name,
+      email: values.email,
+      password: values.password, 
     })
     .then((response) => {
       console.log(response, "el res data");
