@@ -18,15 +18,19 @@ export let loginUser = async (body) => {
 };
 
 export let registerUser = async(body) => {
+  
   try{
     await axios.post( `${API_URL}/auth/register`, {
       name: body.name,
       email: body.email,
       password: body.password, 
     })
-    .them((response) => {
+    .then((response) => {
+      console.log(response, "el res data");
       returnedMessage = response.data.message; 
     });
+    
+    
     return returnedMessage;
   } catch (error) {
     returnedMessage = "Registered email, please try another one";
