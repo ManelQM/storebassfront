@@ -19,9 +19,9 @@ const Register = () => {
         
         try {
             const res = await registerUser(values);
-            console.log(values, "Esto es lo que llega a values");
-            if (res === "success") {
-               
+            console.log(values, "Esto es lo que envia values");
+            if (res.status === "success") {
+                console.log(res.status,"satanas")
                 setSuccessMessage("User registered"); 
                 setErrorMessage("");
                 setTimeout(() => {

@@ -17,23 +17,17 @@ export let loginUser = async (body) => {
   }
 };
 
-export let registerUser = async(values) => {
-  let returnedMessage;
-  try{
-    await axios.post( `${API_URL}/auth/register`, {
+export let registerUser = async (values) => {
+  try {
+    const response = await axios.post(`${API_URL}/auth/register`, {
       name: values.name,
       email: values.email,
-      password: values.password, 
-    })
-    .then((response) => {
-      console.log(response, "el res data en apicall");
-      returnedMessage = response.data.message; 
+      password: values.password,
     });
-    
-    
-    return returnedMessage;
+
+    return { status: "success", message: "User registered" };
   } catch (error) {
-    returnedMessage = "Registered email, please try another one";
-    return returnedMessage;
+    console.error("Error en la solicitud de registro:", error);
+    return { status: "error", message: "Error al registrar el usuario" };
   }
 };
