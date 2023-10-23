@@ -1,6 +1,16 @@
-/* .profileAesthetics {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-} */
+.profileAesthetics {
+  text-align: center;
+  display: flex;
+  align-items:center;
+  justify-content:space-around;
+  flex-direction: row;
+  /* color: red; */
+  border: 2px solid black;
+}
+
+.containerProfile {
+  background-color: goldenrod;
+  flex-direction: column;
+  display: flex;
+
+}
