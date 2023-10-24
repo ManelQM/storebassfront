@@ -4,7 +4,7 @@
   align-items:center;
   justify-content:space-around;
   flex-direction: row;
-  /* color: red; */
+  background-color: bisque;
   border: 2px solid black;
 }
 
@@ -13,4 +13,24 @@
   flex-direction: column;
   display: flex;
 
+}
+
+@media screen and (min-width: 600px) { 
+  .profileAesthetics, .containerProfile{
+      padding: 5rem;
+      border: 1px solid black;
+      border-radius: 10px;
+      margin: 0.5rem;
+      flex-direction: row;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .profileAesthetics, .containerProfile{
+      padding: 5rem;
+      border: 1px solid black;
+      border-radius: 10px;
+      margin: 0.5rem;
+      flex-direction: column;
+  }
 }
