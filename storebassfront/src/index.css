@@ -12,7 +12,7 @@ body {
   display: block;
 }
 
-.dashboard {
+/* .dashboard {
   margin-top: 200px;
   margin-left: 200px;
 }
@@ -43,9 +43,9 @@ body {
   box-shadow:0 0 5px 1px rgb(164, 164, 164);
   background-color: rgba(254, 252, 252, 0.419); 
 
-}
+} */
 
-.inputErrorDesign{
+/* .inputErrorDesign{
   background-color:  #ff001546;
 }
 
@@ -113,4 +113,4 @@ font-weight: bolder;
   width: 100%;
   max-width: 40em;
   box-shadow: 0px 0px 10px 2px rgba(93, 93, 93, 0.291);
-} 
+}  */
