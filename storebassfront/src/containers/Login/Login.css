@@ -6,6 +6,7 @@
     align-items: center;
     justify-content: center;
     color: #29335c;
+    
 }
 .authAestheticsContainer, .loginAestheticsForm, .register-form {
     display: flex;
@@ -19,6 +20,7 @@
         border: 1px solid black;
         border-radius: 10px;
         margin: 0.5rem;
+        background-color: rgb(237, 218, 114);
     }
 }
 
@@ -28,6 +30,7 @@
         border: 1px solid black;
         border-radius: 10px;
         margin: 0.5rem;
+        background-color: rgb(237, 218, 114);
     }
  }
 
@@ -52,10 +55,12 @@ button {
     margin-bottom: 0.5em;
     cursor: pointer;
     color:  #db2b39;
+    /* background-color: rgb(237, 218, 114);; */
 }
 
 .registerButtonAesthetics {
-    background-color: white;
+    
     color: #db2b39;
+    /* background-color: rgb(237, 218, 114);; */
     text-decoration: underline;
 }

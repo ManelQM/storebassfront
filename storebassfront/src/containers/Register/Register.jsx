@@ -1,16 +1,15 @@
 import React, { useState } from "react";
-import "./Register.css";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { registerUser } from "../../services/apiCalls";
-import { useJwt } from "react-jwt";
+import axios from "axios";
+import "./Register.css";
+
 
 const Register = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPass] = useState("");
   const [name, setName] = useState("");
-  // const {setJwt} = useJwt();
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 

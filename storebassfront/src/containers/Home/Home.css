@@ -1,8 +1,40 @@
 .homeAesthetics {
+    text-align: center;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center; 
-    width: 100vw;
-    height: 80vh;
+    align-items:center;
+    justify-content:space-around;
+    flex-direction: row;
+    background-color: rgb(237, 218, 114);
+    border: 1px solid black;
+    border-radius: 10px;
 }
+.carouselAesthetics {
+    text-align: center;
+    display: flex;
+  
+    align-items:center;
+    justify-content:space-around;
+    flex-direction: row;
+    background-color: white; 
+     /* border: 2px solid black;  */
+  }
+
+  @media screen and (min-width: 600px) { 
+    .homeAesthetics, .carouselAesthetics{
+       padding: 5rem;
+       border: 1px solid black;
+       border-radius: 10px;
+       margin: 0.5rem;
+       flex-direction: row;
+   }
+ }
+ 
+ @media screen and (max-width: 1024px) {
+   .homeAesthetics, .carouselAesthetics{
+       padding: 2rem;
+       border: 1px solid black;
+       border-radius: 10px;
+       margin: 0.5rem;
+       flex-direction: column;
+   }
+ }

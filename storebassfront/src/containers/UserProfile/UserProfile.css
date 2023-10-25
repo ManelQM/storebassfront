@@ -1,12 +1,13 @@
-/* .profileAesthetics {
+.profileAesthetics {
   text-align: center;
   display: flex;
   align-items:center;
   justify-content:space-around;
   flex-direction: row;
-  background-color: bisque;
-  border: 2px solid black;
-} */
+  background-color: rgb(237, 218, 114);
+  border: 1px solid black;
+  border-radius: 10px;
+}
 
 /* .containerProfile {
   background-color: goldenrod;
@@ -15,25 +16,27 @@
 
 } */
 
-/* @media screen and (min-width: 600px) { 
+@media screen and (min-width: 600px) { 
   .profileAesthetics{
       padding: 5rem;
       border: 1px solid black;
       border-radius: 10px;
-      margin: 0.5rem;
+      margin: 20rem;
+      margin-top: -3rem;
+      margin-bottom: -3rem;
       flex-direction: row;
   }
-} */
+}
 
-/* @media screen and (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
   .profileAesthetics{
-      padding: 5rem;
+      padding: 2rem;
       border: 1px solid black;
       border-radius: 10px;
       margin: 0.5rem;
       flex-direction: column;
   }
-} */
+}
 
 /* .btn-primary{
   margin-left: 9px;
