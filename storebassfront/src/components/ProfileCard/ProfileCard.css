@@ -1,22 +1,22 @@
 .profileCardAesthetics {
   text-align: center;
   display: flex;
+
   align-items:center;
   justify-content:space-around;
   flex-direction: row;
-  background-color: bisque;
-  border: 2px solid black;
+  background-color: black; 
+   /* border: 2px solid black;  */
 }
-
 .containerProfile {
-  background-color: goldenrod;
+  background-color:rgb(237, 218, 114);
   flex-direction: column;
   display: flex;
 
 }
 
 @media screen and (min-width: 600px) { 
-  .profileCardAesthetics, .containerProfile{
+   .profileCardAesthetics, .containerProfile{
       padding: 5rem;
       border: 1px solid black;
       border-radius: 10px;
@@ -27,7 +27,7 @@
 
 @media screen and (max-width: 1024px) {
   .profileCardAesthetics, .containerProfile{
-      padding: 5rem;
+      padding: 2rem;
       border: 1px solid black;
       border-radius: 10px;
       margin: 0.5rem;
@@ -47,5 +47,4 @@
   height: 100px;
   width: 100px;
   margin-left: 50px;
-  /* margin-top: -20px; */
 }
