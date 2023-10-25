@@ -28,7 +28,7 @@ const ProfileCard = () => {
               id="edit_profile"
               className="btn btn-primary btn-block my-5"
             >
-              Edit Profile
+              Go to my orders
             </a>
           </div>
 
@@ -40,7 +40,7 @@ const ProfileCard = () => {
             <p>{userReduxCredentials?.user?.email}</p>
 
             <a href="#" className="btn btn-danger btn-block mt-5">
-              My Orders
+              Edit Profile
             </a>
 
             <a href="#" className="btn btn-primary btn-block mt-3">

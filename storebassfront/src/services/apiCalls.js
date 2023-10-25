@@ -40,6 +40,6 @@ export let getMyProfile = async () => {
     let data = res.data.user;
     return data;
   }catch (error) {
-    console.error(error);
+    console.error("No profile data:",error);
   }
 };
