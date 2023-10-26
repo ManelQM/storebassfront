@@ -9,13 +9,6 @@
   border-radius: 10px;
 }
 
-/* .containerProfile {
-  background-color: goldenrod;
-  flex-direction: column;
-  display: flex;
-
-} */
-
 @media screen and (min-width: 600px) { 
   .profileAesthetics{
       padding: 5rem;
@@ -38,16 +31,3 @@
   }
 }
 
-/* .btn-primary{
-  margin-left: 9px;
-
-} */
-
-/* .avatar {
-  border: 1px solid black;
-  border-style:dotted;
-  border-radius: 50%;
-  height: 100px;
-  width: 100px;
-  margin-left: 50px;
-} */
