@@ -33,11 +33,29 @@ const ProfileCard = () => {
           </div>
 
           <div className="col-12 col-md-5">
-            <h4>Name: </h4>
+            <h4>Email: </h4>
+            <p>{userReduxCredentials?.user?.email}</p>
+
+            <h4>Name:</h4>
             <p>{userReduxCredentials?.user?.name}</p>
 
-            <h4>Email Address</h4>
-            <p>{userReduxCredentials?.user?.email}</p>
+            <h4>Surname:</h4>
+            <p>{userReduxCredentials?.user?.surname}</p>
+
+            <h4>Address</h4>
+            <p>{userReduxCredentials?.user?.address}</p>
+
+            <h4>Postal Code:</h4>
+            <p>{userReduxCredentials?.user?.postalcode}</p>
+
+            <h4>City:</h4>
+            <p> {userReduxCredentials?.user?.city}</p>
+
+            <h4>Country:</h4>
+            <p> {userReduxCredentials?.user?.country}</p>
+
+            <h4>Movile Phone:</h4>
+            <p> {userReduxCredentials?.user?.movilephone}</p>
 
             <a href="#" className="btn btn-danger btn-block mt-5">
               Edit Profile

@@ -25,9 +25,9 @@ export let loginUser = async (body) => {
     
     return response.data;
   } catch (error) {
-    console.error("Error in loginUser:", error);
+    console.error(error);
 
-    return "Invalid Email or Password";
+  
   }
 };
 
