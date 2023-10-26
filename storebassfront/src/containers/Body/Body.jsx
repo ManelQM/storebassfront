@@ -5,6 +5,7 @@ import Home from "../Home/Home";
 import Register from "../Register/Register";
 import Login from "../Login/Login";
 import UserProfile from "../UserProfile/UserProfile";
+import UserProfileUpdate from "../UserProfileUpdate/UserProfileUpdate";
 
 
 
@@ -17,6 +18,7 @@ const Body = () => {
         <Route path="/register" element={<Register/>} />
         <Route path="/login" element={<Login/>} />
         <Route path="/userprofile" element={<UserProfile/>} />
+        <Route path="/userprofileupdate" element={<UserProfileUpdate/>}/>
       </Routes>
     </div>
   );
