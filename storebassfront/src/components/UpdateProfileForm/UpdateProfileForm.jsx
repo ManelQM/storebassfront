@@ -12,7 +12,8 @@ const UpdateProfileForm = () => {
         e.preventDefault(); 
     }
     return (
-        <div className="updateAesthetics">
+        <div className="profileCardAesthetics">
+        <div className="updateAesthetics containerProfile">
             <h1>Update your profile</h1>
             <form className="updateAestheticsForm">
                 <label htmlFor="name">Name</label>
@@ -41,6 +42,7 @@ const UpdateProfileForm = () => {
                 />
                 <button type="submit" onClick={() => navigate("/userprofile")}>Update Profile</button>
             </form>
+        </div>
         </div>
     )
 };
