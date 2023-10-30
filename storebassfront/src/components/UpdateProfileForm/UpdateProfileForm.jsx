@@ -27,8 +27,23 @@ const UpdateProfileForm = () => {
     })
     
     const handleUpdate = async (e) => {
-        e.preventDefault(); 
-    }
+        setUpdatemyprofile((prevState) => ({
+            ...prevState, 
+            [e.target.name]: e.targe.value,
+        }))
+    };
+
+    const errorHandler = (e) => {
+        let error = "";
+    }; 
+
+    useEffect (() => {
+        if (messageSuccess !== "") {
+            setMessageSuccess(""); 
+        }
+    }, []);
+    
+    
     return (
         <div className="profileCardAesthetics">
         <div className="updateAesthetics containerProfile">
