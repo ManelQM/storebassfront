@@ -43,6 +43,21 @@ const UpdateProfileForm = () => {
         }
     }, []);
     
+    const letsUpdateUser = () => {
+        let makeUpdate = {
+            id: reduxDataUser.user.id,
+            name: updateMyProfile.name,
+            surname: updateMyProfile.surname,
+            address: updateMyProfile.address,
+
+        };
+
+        updateProfile (makeUpdate, reduxDataUser.token.jwt)
+        .then((result) => {
+
+        })
+        .catch((error) =>console.log(error)); 
+    }
     
     return (
         <div className="profileCardAesthetics">
@@ -73,7 +88,7 @@ const UpdateProfileForm = () => {
                 placeholder="New address"
                 name="address"
                 />
-                <button type="submit" onClick={() => navigate("/userprofile")}>Update Profile</button>
+                <button type="submit" onClick={letsUpdateUser}>Update Profile</button>
             </form>
         </div>
         </div>
