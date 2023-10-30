@@ -1,12 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux/es/hooks/useSelector";
+import {updateProfile} from "../../services/apiCalls"; 
+import {userData} from "../../containers/Login/loginSlice";
 import "./UpdateProfileForm.css";
-import { useAsyncError, useNavigate } from "react-router-dom";
 
 const UpdateProfileForm = () => {
     const [name, setName] = useState("");
     const [surname,setSurname] = useState("");
     const [address, setAddress] = useState("");
     const navigate = useNavigate();
+
+    const reduxDataUser = useSelector(userData); 
+    const [messageSuccess, setMessageSuccess] = useState([""]); 
+
+    const [updateMyProfile, setUpdatemyprofile] = useState({
+        name: "", 
+        surname: "",
+        address: "",
+    }); 
+
+    const [updateMyProfileError, setUpdatemyprofileError] = useState({
+        name: "",
+        surname: "",
+        address: "",
+    })
     
     const handleUpdate = async (e) => {
         e.preventDefault(); 

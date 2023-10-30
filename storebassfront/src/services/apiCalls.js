@@ -43,3 +43,21 @@ export let getMyProfile = async () => {
     console.error("No profile data:",error);
   }
 };
+
+
+export let updateProfile = async (newprofileData, token) => {
+  try{
+    const updateUserProfile = await axios.patch( `${API_URL}/user/updatemyprofile` 
+    + newprofileData.id, newprofileData,
+    {
+      headers: {
+        Authorization: "Bearer" + token
+      },
+     }
+    );
+    return updateUserProfile;
+  }catch (error) {
+    returnedMessage = "Cant update User";
+    return returnedMessage;
+  }
+}; 
