@@ -1,6 +1,6 @@
 import React from "react";
-import "./UserProfileUpdate.css";
 import UpdateProfileForm from "../../components/UpdateProfileForm/UpdateProfileForm"; "../../components/UpdateProfileForm/UpdateProfileForm";
+import "./UserProfileUpdate.css";
 
 const UserProfileUpdate = () => {
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux/es/hooks/useSelector";
+import { useSelector, useDispatch } from "react-redux";
 import {updateProfile} from "../../services/apiCalls"; 
 import {userData} from "../../containers/Login/loginSlice";
 import "./UpdateProfileForm.css";
@@ -11,64 +11,42 @@ const UpdateProfileForm = () => {
     const [address, setAddress] = useState("");
     const navigate = useNavigate();
 
-    const reduxDataUser = useSelector(userData); 
-    const [messageSuccess, setMessageSuccess] = useState([""]); 
+    const isAuthenticated = useSelector((state) => state.user.token);
+    const dispatch = useDispatch(); 
 
-    const [updateMyProfile, setUpdatemyprofile] = useState({
-        name: "", 
-        surname: "",
-        address: "",
-    }); 
-
-    const [updateMyProfileError, setUpdatemyprofileError] = useState({
-        name: "",
-        surname: "",
-        address: "",
-    })
-    
-    const handleUpdate = async (e) => {
-        setUpdatemyprofile((prevState) => ({
-            ...prevState, 
-            [e.target.name]: e.targe.value,
-        }))
-    };
-
-    const errorHandler = (e) => {
-        let error = "";
-    }; 
-
-    useEffect (() => {
-        if (messageSuccess !== "") {
-            setMessageSuccess(""); 
-        }
-    }, []);
-    
-    const letsUpdateUser = () => {
-        let makeUpdate = {
-            id: reduxDataUser.user.id,
-            name: updateMyProfile.name,
-            surname: updateMyProfile.surname,
-            address: updateMyProfile.address,
-
+    const handleUpdate = async(e) => { 
+        e.preventDefault();
+        
+        const makeUpdate = {
+            name,
+            surname,
+            address,
         };
 
-        updateProfile (makeUpdate, reduxDataUser.token.jwt)
-        .then((result) => {
+        try {
+            const response = await updateProfile(makeUpdate, isAuthenticated.jwt);
 
-        })
-        .catch((error) =>console.log(error)); 
+            if (response.data) {
+                dispatch(updateUser(response.data.user));
+            } else {
+                console.log("Error trying to update user profile"); 
+            }
+        } catch (error) {
+            console.error("Error trying to update user profile2", error)
+        }
     }
     
     return (
         <div className="profileCardAesthetics">
         <div className="updateAesthetics containerProfile">
             <h1>Update your profile</h1>
-            <form className="updateAestheticsForm">
+            {isAuthenticated ? ( 
+            <form className="updateAestheticsForm"onSubmit={handleUpdate}>
                 <label htmlFor="name">Name</label>
                 <input
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                type="name"
+                type="text"
                 placeholder="New name here"
                 name="name"
                 />
@@ -76,7 +54,7 @@ const UpdateProfileForm = () => {
                 <input 
                 value={surname}
                 onChange={(e) => setSurname(e.target.value)}
-                type="surname"
+                type="text"
                 placeholder="New surname here"
                 name="surname"
                 />
@@ -84,12 +62,16 @@ const UpdateProfileForm = () => {
                 <input
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
-                type="address"
+                type="text"
                 placeholder="New address"
                 name="address"
                 />
-                <button type="submit" onClick={letsUpdateUser}>Update Profile</button>
+                <button type="submit" onClick={handleUpdate}>Update Profile</button>
+               
             </form>
+            ) : (
+                <p>You must be logged in to update your profile</p>
+             )}
         </div>
         </div>
     )
