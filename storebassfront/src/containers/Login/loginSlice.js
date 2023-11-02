@@ -24,4 +24,5 @@ export const loginSlice = createSlice ({
 
 export const { login, logout } = loginSlice.actions;
 export const userData = (state) => state.user;
+export const updateUser = (state) => state.user; 
 export default loginSlice.reducer;

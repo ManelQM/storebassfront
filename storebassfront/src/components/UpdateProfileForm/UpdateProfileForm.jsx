@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {updateProfile} from "../../services/apiCalls"; 
-import {userData} from "../../containers/Login/loginSlice";
+import {userData, updateUser} from "../../containers/Login/loginSlice";
 import "./UpdateProfileForm.css";
 
 const UpdateProfileForm = () => {
@@ -25,7 +25,7 @@ const UpdateProfileForm = () => {
 
         try {
             const response = await updateProfile(makeUpdate, isAuthenticated.jwt);
-
+            console.log(response, "la response")
             if (response.data) {
                 dispatch(updateUser(response.data.user));
             } else {

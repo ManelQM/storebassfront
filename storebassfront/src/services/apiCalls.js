@@ -47,15 +47,15 @@ export let getMyProfile = async () => {
 
 export let updateProfile = async (newprofileData, token) => {
   let returnedMessage; 
-
+ 
   try{
     const updateUserProfile = await axios.patch
-    ( `${API_URL}user/updatemyprofile` + newprofileData.id, 
+    (`${API_URL}/user/updatemyprofile`,
     newprofileData,
-    console.log(updateUserProfile, "que viene?"),
+  
     {
       headers: {
-        Authorization: "Bearer" + token
+        Authorization: "Bearer " + token
       },
      }
     );
@@ -65,3 +65,4 @@ export let updateProfile = async (newprofileData, token) => {
     return returnedMessage;
   }
 }; 
+
