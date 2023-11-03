@@ -10,7 +10,7 @@ const UpdateProfileForm = () => {
   const [surname, setSurname] = useState("");
   const [address, setAddress] = useState("");
   const [updateMessage, setUpdateMessage] = useState("");
-  const isAuthenticated = useSelector((state) => state.user.token);
+  const userReduxCredentials = useSelector((state) => state.user.token);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -24,10 +24,10 @@ const UpdateProfileForm = () => {
     };
 
     try {
-      const response = await updateProfile(makeUpdate, isAuthenticated.jwt);
+      const response = await updateProfile(makeUpdate, userReduxCredentials.jwt);
       
-      if (response.data) {
-        dispatch(updateUserProfile(response.data.user));
+      if (response) {
+        dispatch(updateUserProfile(response));
         setUpdateMessage("Usuario actualizado correctamente");
         console.log("se ha actualizado el usuario")
         setTimeout(() => {
@@ -45,7 +45,7 @@ const UpdateProfileForm = () => {
     <div className="profileCardAesthetics">
       <div className="updateAesthetics containerProfile">
         <h1>Update your profile</h1>
-        {isAuthenticated ? (
+        {userReduxCredentials ? (
           <form className="updateAestheticsForm" onSubmit={handleUpdate}>
             <label htmlFor="name">Name</label>
             <input

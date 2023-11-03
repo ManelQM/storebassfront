@@ -1,11 +1,11 @@
 import React from "react";
-import "./Body.css";
 import { Route, Routes } from "react-router-dom";
 import Home from "../Home/Home";
 import Register from "../Register/Register";
 import Login from "../Login/Login";
 import UserProfile from "../UserProfile/UserProfile";
 import UserProfileUpdate from "../UserProfileUpdate/UserProfileUpdate";
+import "./Body.css";
 
 
 

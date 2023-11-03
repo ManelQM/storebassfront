@@ -1,14 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { userData } from "../../containers/Login/loginSlice";
+import {selectUser,updateUserProfile } from "../UpdateProfileForm/updateProfileSlice";
 import { getMyProfile } from "../../services/apiCalls";
 import "./ProfileCard.css";
 
 const ProfileCard = () => {
   const navigate = useNavigate();
-  const userReduxCredentials = useSelector(userData);
+  const userReduxCredentials = useSelector(selectUser);
   const dispatch = useDispatch();
+// console.log(userReduxCredentials, )
+//   dispatch(userData);
+
+useEffect(() => {
+  const fetchUserData = async () => {
+    const response = await getMyProfile(userReduxCredentials.jwt);
+    dispatch(updateUserProfile(response.data.user));
+  };
+  fetchUserData();
+}, [dispatch,userReduxCredentials]);
+
 
   return (
     <div className="profileCardAesthetics">
