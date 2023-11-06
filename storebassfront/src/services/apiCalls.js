@@ -31,7 +31,7 @@ export let loginUser = async (body) => {
   }
 };
 
-export let getMyProfile = async () => {
+export let getMyProfile = async (token) => {
   const config = {
     headers: {Authorization: `Bearer ${token}`},
   };

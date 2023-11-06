@@ -10,16 +10,18 @@ const ProfileCard = () => {
   const navigate = useNavigate();
   const userReduxCredentials = useSelector(selectUser);
   const dispatch = useDispatch();
+  // const data = selectUser()
 // console.log(userReduxCredentials, )
 //   dispatch(userData);
 
 useEffect(() => {
   const fetchUserData = async () => {
-    const response = await getMyProfile(userReduxCredentials.jwt);
-    dispatch(updateUserProfile(response.data.user));
+    const response = await getMyProfile(userReduxCredentials.token);
+    dispatch(selectUser(response.data.user));
   };
   fetchUserData();
 }, [dispatch,userReduxCredentials]);
+
 
 
   return (
