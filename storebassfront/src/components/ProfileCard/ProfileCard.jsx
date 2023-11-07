@@ -16,10 +16,11 @@ const ProfileCard = () => {
 
 useEffect(() => {
   const fetchUserData = async () => {
-    const token = useSelector(userData).token;
+    if (userReduxCredentials.jwt) {  
+    const token = userReduxCredentials.jwt;
     const response = await getMyProfile(token);
-    // console.log(userReduxCredentials)
     dispatch(userData(response.data.user));
+    }
   };
   fetchUserData();
 }, [dispatch,userReduxCredentials]);

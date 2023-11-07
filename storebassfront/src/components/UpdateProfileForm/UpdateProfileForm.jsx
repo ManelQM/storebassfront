@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { updateProfile } from "../../services/apiCalls";
 import { updateUserProfile, selectUser } from "./updateProfileSlice";
 import "./UpdateProfileForm.css";
+import { userData } from "../../containers/Login/loginSlice";
 
 const UpdateProfileForm = () => {
   const [name, setName] = useState("");
@@ -25,10 +26,11 @@ const UpdateProfileForm = () => {
 
     try {
       const response = await updateProfile(makeUpdate, userReduxCredentials.jwt);
-      console.log(userReduxCredentials.jwt,"los credentials")
+      const userData = response.data.user
+      // console.log(userReduxCredentials.jwt,"los credentials")
       if (response) {
         console.log(response, "mecago en mi vida la response")
-        dispatch(updateUserProfile(response));
+        dispatch(updateUserProfile(userData));
         setUpdateMessage("Usuario actualizado correctamente");
         console.log("se ha actualizado el usuario")
         setTimeout(() => {
