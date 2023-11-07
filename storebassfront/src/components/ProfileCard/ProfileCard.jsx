@@ -8,7 +8,7 @@ import "./ProfileCard.css";
 
 const ProfileCard = () => {
   const navigate = useNavigate();
-  const userReduxCredentials = useSelector(selectUser);
+  const userReduxCredentials = useSelector(userData);
   const dispatch = useDispatch();
   // const data = selectUser()
 // console.log(userReduxCredentials, )
@@ -16,13 +16,24 @@ const ProfileCard = () => {
 
 useEffect(() => {
   const fetchUserData = async () => {
-    const response = await getMyProfile(userReduxCredentials.token);
-    dispatch(selectUser(response.data.user));
+    const token = useSelector(userData).token;
+    const response = await getMyProfile(token);
+    // console.log(userReduxCredentials)
+    dispatch(userData(response.data.user));
   };
   fetchUserData();
 }, [dispatch,userReduxCredentials]);
 
+/* ------------------------------*/
 
+// useEffect(() => {
+//   const fetchUserData = async () => {
+//     const token = useSelector(userData).token; 
+//     const response = await getMyProfile(token);
+//     dispatch(userData(response.data.user));
+//   };
+//   fetchUserData();
+// }, [dispatch, userReduxCredentials]);
 
   return (
     <div className="profileCardAesthetics">

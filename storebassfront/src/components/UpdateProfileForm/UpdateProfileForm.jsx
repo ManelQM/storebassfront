@@ -25,8 +25,9 @@ const UpdateProfileForm = () => {
 
     try {
       const response = await updateProfile(makeUpdate, userReduxCredentials.jwt);
-      
+      console.log(userReduxCredentials.jwt,"los credentials")
       if (response) {
+        console.log(response, "mecago en mi vida la response")
         dispatch(updateUserProfile(response));
         setUpdateMessage("Usuario actualizado correctamente");
         console.log("se ha actualizado el usuario")
