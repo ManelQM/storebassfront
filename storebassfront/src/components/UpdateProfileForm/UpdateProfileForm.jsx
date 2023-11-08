@@ -26,11 +26,11 @@ const UpdateProfileForm = () => {
 
     try {
       const response = await updateProfile(makeUpdate, userReduxCredentials.jwt);
-      const userData = response.data.user
+      const dataUser = response.data.user
       // console.log(userReduxCredentials.jwt,"los credentials")
       if (response) {
         console.log(response, "mecago en mi vida la response")
-        dispatch(updateUserProfile(userData));
+        dispatch(updateUserProfile (dataUser));
         setUpdateMessage("Usuario actualizado correctamente");
         console.log("se ha actualizado el usuario")
         setTimeout(() => {
