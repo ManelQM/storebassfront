@@ -4,19 +4,15 @@ const userUpdateSlice = createSlice ( {
 
     name: "user",
     initialState: {
-        token: "",
+        jwt: "",
         user: {},
     },
 
     reducers: {
         updateUserProfile: (state, action) => {
-            // state.user = {...state.user, ...action.payload};
-            return {
-                ...state,
-                ...action.payload,
-            };
+        state.user = action.payload;
         },
-    },
+      },
 });
 
 export const { updateUserProfile} = userUpdateSlice.actions;

@@ -43,12 +43,47 @@ const UpdateProfileForm = () => {
       console.error("Error trying to update user profile2", error);
     }
   };
+  // useEffect(() => {
+  //   // Actualizar el estado local con los datos del usuario al cargar
+  //   if (userReduxCredentials.user) {
+  //     const { name, surname, address } = userReduxCredentials.user;
+  //     setName(name);
+  //     setSurname(surname);
+  //     setAddress(address);
+  //   }
+  // }, [userReduxCredentials.user]);
 
+  // const handleUpdate = async (e) => {
+  //   e.preventDefault();
+
+  //   const makeUpdate = {
+  //     name,
+  //     surname,
+  //     address,
+  //   };
+
+  //   try {
+  //     const response = await updateProfile(makeUpdate, userReduxCredentials.jwt);
+  //     const dataUser = response.data.user;
+
+  //     if (response) {
+  //       dispatch(updateUserProfile(dataUser));
+  //       setUpdateMessage("Usuario actualizado correctamente");
+  //       setTimeout(() => {
+  //         navigate("/userprofile");
+  //       }, 2000);
+  //     } else {
+  //       console.log("Error trying to update user profile");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error trying to update user profile2", error);
+  //   }
+  // };
   return (
     <div className="profileCardAesthetics">
       <div className="updateAesthetics containerProfile">
         <h1>Update your profile</h1>
-        {userReduxCredentials ? (
+        {userReduxCredentials?.jwt ? (
           <form className="updateAestheticsForm" onSubmit={handleUpdate}>
             <label htmlFor="name">Name</label>
             <input

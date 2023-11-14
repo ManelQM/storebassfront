@@ -53,11 +53,12 @@ export let loginUser = async (body) => {
 
 export let getMyProfile = async () => {
   const config = {
-    headers: {Authorization: `Bearer ${token}`},
+    headers: {Authorization: `Bearer ${jwt}`},
   };   
   try {
     let res = await axios.get(`${API_URL}/user/myprofile`, config);
     let data = res.data.user;
+    console.log(data, "pues los datos")
     return data;
   }catch (error) {
     console.error("No profile data:",error);
@@ -67,7 +68,6 @@ export let getMyProfile = async () => {
 
 export let updateProfile = async (newprofileData, token) => {
   let returnedMessage; 
- 
   try{
     const updateUserProfile = await axios.patch
     (`${API_URL}/user/updatemyprofile`,
@@ -79,6 +79,7 @@ export let updateProfile = async (newprofileData, token) => {
       },
      }
     );
+    console.log(updateUserProfile, "la update")
     return updateUserProfile;
   }catch (error) {
     returnedMessage = "Cant update User";

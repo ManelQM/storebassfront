@@ -19,11 +19,13 @@ useEffect(() => {
     if (userReduxCredentials.jwt) {  
     const token = userReduxCredentials.jwt;
     const response = await getMyProfile(token);
-    dispatch(userData(response.data.user));
+    dispatch(updateUserProfile(response.data.user));
     }
   };
   fetchUserData();
-}, [dispatch,userReduxCredentials]);
+}, [userReduxCredentials.jwt]);
+
+console.log(userReduxCredentials, "userReduxCredentials")
 
 /* ------------------------------*/
 
@@ -38,7 +40,7 @@ useEffect(() => {
 
   return (
     <div className="profileCardAesthetics">
-      {userReduxCredentials?.token !== "" ? (
+      {userReduxCredentials?.jwt !== "" ? (
         <div className="containerProfile container  container-fluid">
           <h2 className="mt-5 ml-5">My Profile</h2>
 
