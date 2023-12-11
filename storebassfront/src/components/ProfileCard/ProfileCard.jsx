@@ -14,12 +14,25 @@ const ProfileCard = () => {
 // console.log(userReduxCredentials, )
 //   dispatch(userData);
 
+// useEffect(() => {
+//   const fetchUserData = async () => {
+//     if (userReduxCredentials.jwt) {  
+//     const token = userReduxCredentials.jwt;
+//     const response = await getMyProfile(token);
+//     dispatch(updateUserProfile(response.data.user));
+//     }
+//   };
+//   fetchUserData();
+// }, [userReduxCredentials.jwt]);
+
 useEffect(() => {
   const fetchUserData = async () => {
-    if (userReduxCredentials.jwt) {  
-    const token = userReduxCredentials.jwt;
-    const response = await getMyProfile(token);
-    dispatch(updateUserProfile(response.data.user));
+    if (userReduxCredentials.jwt) {
+      const token = userReduxCredentials.jwt;
+      const response = await getMyProfile(token);
+      // Update the user interface with the updated user data
+      const dataUser = response.data.user;
+      dispatch(updateUserProfile(dataUser));
     }
   };
   fetchUserData();

@@ -27,6 +27,7 @@ const UpdateProfileForm = () => {
     try {
       const response = await updateProfile(makeUpdate, userReduxCredentials.jwt);
       const dataUser = response.data.user
+      console.log(dataUser, "aqui que pasa")
       // console.log(userReduxCredentials.jwt,"los credentials")
       if (response) {
         console.log(response, "mecago en mi vida la response")
@@ -43,6 +44,41 @@ const UpdateProfileForm = () => {
       console.error("Error trying to update user profile2", error);
     }
   };
+
+//   try {
+//     const response = await updateProfile(makeUpdate, userReduxCredentials.jwt);
+//     const dataUser = response.data.user
+//     // Dispatch an action to trigger a re-render of the profileCard component
+//     dispatch(updateUserProfile(dataUser));
+//     setUpdateMessage("Usuario actualizado correctamente");
+//     console.log("se ha actualizado el usuario");
+//     setTimeout(() => {
+//       dispatch(navigate("/userprofile"));
+//     }, 2000);
+//   } catch (error) {
+//     console.error("Error trying to update user profile2", error);
+//   }
+// };
+// try {
+//   const response = await updateProfile(makeUpdate, userReduxCredentials.jwt);
+//   const dataUser = response.data.user;
+// console.log(dataUser, "pues los datos")
+//   // Dispatch an action to update the user profile
+//   dispatch(updateUserProfile({
+//     jwt: userReduxCredentials.jwt,
+//     user: dataUser
+
+//   }));
+
+//   setUpdateMessage("Usuario actualizado correctamente");
+//   console.log("se ha actualizado el usuario");
+//   setTimeout(() => {
+//     dispatch(navigate("/userprofile"));
+//   }, 2000);
+// } catch (error) {
+//   console.error("Error trying to update user profile", error);
+// }
+// };
 
   return (
     <div className="profileCardAesthetics">
