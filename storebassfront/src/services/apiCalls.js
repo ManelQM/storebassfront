@@ -66,20 +66,20 @@ export let getMyProfile = async () => {
 };
 
 
-export let updateProfile = async (newprofileData, token) => {
+export let updateProfile = async (editedProfile, token) => {
   let returnedMessage; 
   try{
     const updateUserProfile = await axios.patch
     (`${API_URL}/user/updatemyprofile`,
-    newprofileData,
+    editedProfile,
   
     {
       headers: {
-        Authorization: "Bearer " + token
+        Authorization: "Bearer " + token 
       },
      }
     );
-    console.log(updateUserProfile, "la update")
+    console.log(updateUserProfile, editedProfile,"la update")
     return updateUserProfile;
   }catch (error) {
     returnedMessage = "Cant update User";

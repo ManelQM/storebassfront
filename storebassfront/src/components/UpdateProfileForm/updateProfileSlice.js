@@ -15,7 +15,7 @@ const userUpdateSlice = createSlice ( {
       },
 });
 
-export const { updateUserProfile} = userUpdateSlice.actions;
+export const {updateUserProfile} = userUpdateSlice.actions;
 
 export const selectUser = (state) => state.user; 
 
